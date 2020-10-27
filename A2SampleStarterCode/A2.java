@@ -21,8 +21,8 @@ public class A2 {
 	private int topN = 4;
 	private int totalwordcount = 0;
 	private Scanner input = new Scanner(System.in);
-	//private SLL<Avenger> mentionList = new SLL<Avenger>();
-	//private SLL<Avenger> alphabticalList = new SLL<Avenger>();
+	private SLL<Avenger> mentionList = new SLL<Avenger>();
+	private SLL<Avenger> alphabticalList = new SLL<Avenger>();
 	//private SLL<Avenger> mostPopularList = new SLL<Avenger>(new AvengerComparatorFreqDesc());
 	//private SLL<Avenger> leastPopularList = new SLL<Avenger>(new AvengerComparatorFreqAsc());
 	
@@ -64,6 +64,8 @@ public class A2 {
 
 			if (word.length() > 0) {
 				// TODO:
+				totalwordcount++;
+				
 			}
 		}
 	}

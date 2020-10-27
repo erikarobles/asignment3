@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 public class SLL <T extends Comparable<T>> {
 	   private Node<T> head;
 	   private Node<T> tail;
+=======
+
+public class SLL <T extends Comparable<T>> {
+	   private Node<String> head;
+	   private Node<String> tail;
+>>>>>>> 20eabc2f8209a26397577f63b6fe8d72f6478011
 	   
 	   private void addHead(Node<T> n) {
 		   n.setNext(head);
@@ -22,7 +29,11 @@ public class SLL <T extends Comparable<T>> {
 	       }
 	   }
 
+<<<<<<< HEAD
 	   private void addInOrder(Node<T> n) 
+=======
+	   public void addInOrder(Node<String> n)
+>>>>>>> 20eabc2f8209a26397577f63b6fe8d72f6478011
 	   {
 		   
 		   if(head == null) {
