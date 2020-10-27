@@ -10,17 +10,17 @@ public class SLL <T extends Comparable<T>> {
 		   // add a node to the head of the list.
 	   }
 	   
-	   public void addTail(Node<T> n)
+	   public void addTail(Node<T> a)
 	   {
 	       if(head != null) {
 	    	   Node<T> mover = head;
 	    	   while(mover.getNext() != null) {
 	    		   mover = mover.getNext();
 	    	   }
-	    	   mover.setNext(n);
+	    	   mover.setNext(a);
 	       }
 	       else {
-	    	   head = n;
+	    	   head = a;
 	       }
 	   }
 
