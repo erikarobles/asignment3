@@ -24,7 +24,7 @@ public class SLL <T extends Comparable<T>> {
 	       }
 	   }
 
-	   private void addInOrder(Node<String> n) 
+	   public void addInOrder(Node<String> n)
 	   {
 		   
 		   if(head == null) {
