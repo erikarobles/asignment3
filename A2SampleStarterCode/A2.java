@@ -68,13 +68,14 @@ public class A2 {
 				if (!existsInRoster(word)) {
 
 					Avenger a = createAvenger(word); //creates a new avenger object
+					Node<Avenger> aNode = new Node<Avenger>(a);
 
 					if (a!= null) {
 						if (listContains(a)) { //if avengersArrayList already had this avenger, increase freq
 							increaseFreq(a);
 						} else {
 							a.setFreq();
-							avengersArrayList.add(a); // if not, add it to the list
+							mentionList.addTail(aNode); // if not, add it to the list
 						}
 					}
 				}
@@ -123,12 +124,12 @@ public class A2 {
 	}
 	private void increaseFreq(Avenger a) {
 
-		for (Avenger currAvenger : avengersArrayList) {
-			if (currAvenger.getAlias().equals(a.getAlias()) ||
-					currAvenger.getName().equals(a.getName())) {
-				currAvenger.increaseFreq();
-			}
-		}
+//		for (Avenger currAvenger : mentionLost) {
+//			if (currAvenger.getAlias().equals(a.getAlias()) ||
+//					currAvenger.getName().equals(a.getName())) {
+//				currAvenger.increaseFreq();
+//			}
+//		}
 	}
 	private String cleanWord(String next) {
 		// First, if there is an apostrophe, the substring
