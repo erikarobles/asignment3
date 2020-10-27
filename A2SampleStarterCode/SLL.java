@@ -1,8 +1,5 @@
 
 public class SLL <T extends Comparable<T>> {
-
-
-public class SLL {
 	   private Node<String> head;
 	   private Node<String> tail;
 	   
