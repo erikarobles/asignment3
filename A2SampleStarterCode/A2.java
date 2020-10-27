@@ -74,7 +74,7 @@ public class A2 {
 							increaseFreq(a);
 						} else {
 							a.setFreq();
-							avengersArrayList.add(a); // if not, add it to the list
+							mentionList; // if not, add it to the list
 						}
 					}
 				}

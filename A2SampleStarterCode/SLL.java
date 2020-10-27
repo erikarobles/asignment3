@@ -4,13 +4,13 @@ public class SLL <T extends Comparable<T>> {
 	   private Node<T> tail;
 
 	   
-	   private void addHead(Node<T> n) {
+	   public void addHead(Node<T> n) {
 		   n.setNext(head);
 		   head = n;
 		   // add a node to the head of the list.
 	   }
 	   
-	   private void addTail(Node<T> n) 
+	   public void addTail(Node<T> n)
 	   {
 	       if(head != null) {
 	    	   Node<T> mover = head;
@@ -25,7 +25,7 @@ public class SLL <T extends Comparable<T>> {
 	   }
 
 
-	   private void addInOrder(Node<T> n)
+	   public void addInOrder(Node<T> n)
 	   {
 		   
 		   if(head == null) {
