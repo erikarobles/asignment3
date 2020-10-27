@@ -44,7 +44,7 @@ public class SLL <T extends Comparable<T>> {
 		   }
 	   
 	   
-	   private Node<T> find(String key) 
+	   public Node<T> find(T key)
 	   {
 	       // implement find 
 		   if(head != null) {
@@ -66,7 +66,7 @@ public class SLL <T extends Comparable<T>> {
 		   }
 	   }
 	   
-	   private Node<T> delete (String key) 
+	   public Node<T> delete (Node<T> key)
 	   {   
 			Node<T> mover = head;
 			Node<T> previous = head;
@@ -100,7 +100,7 @@ public class SLL <T extends Comparable<T>> {
 			return null;
 	   }
 	   
-	   private void printList()
+	   public void printList()
 	   {
 	       System.out.println();
 	       Node<T> currentNode = head;

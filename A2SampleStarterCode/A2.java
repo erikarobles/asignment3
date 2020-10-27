@@ -74,7 +74,7 @@ public class A2 {
 							increaseFreq(a);
 						} else {
 							a.setFreq();
-							mentionList; // if not, add it to the list
+							avengersArrayList.add(a); // if not, add it to the list
 						}
 					}
 				}
@@ -114,15 +114,12 @@ public class A2 {
 		return false;
 	}
 	private boolean listContains(Avenger a) {
-
-		for (Avenger currAvenger : avengersArrayList) {
-			if (currAvenger.getAlias().equals(a.getAlias()) ||
-					currAvenger.getName().equals(a.getName())) {
-				return true;
-			}
+		if (mentionList.find(a) == null){
+			return false;
 		}
-
-		return false;
+		else{
+			return true;
+		}
 	}
 	private void increaseFreq(Avenger a) {
 
