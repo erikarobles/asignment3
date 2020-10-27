@@ -1,20 +1,18 @@
-import tut4.Node;
-
-public class SLL {
-	   private Node<String> head;
-	   private Node<String> tail;
+public class SLL <T extends Comparable<T>> {
+	   private Node<T> head;
+	   private Node<T> tail;
 	   
-	   private void addHead(Node<String> n) 
+	   private void addHead(Node<T> n) 
 	   {
 		   n.setNext(head);
 		   head = n;
 		   // add a node to the head of the list.
 	   }
 	   
-	   private void addTail(Node<String> n) 
+	   private void addTail(Node<T> n) 
 	   {
 	       if(head != null) {
-	    	   Node<String> mover = head;
+	    	   Node<T> mover = head;
 	    	   while(mover.getNext() != null) {
 	    		   mover = mover.getNext();
 	    	   }
@@ -25,14 +23,14 @@ public class SLL {
 	       }
 	   }
 
-	   private void addInOrder(Node<String> n) 
+	   private void addInOrder(Node<T> n) 
 	   {
 		   
 		   if(head == null) {
 			   head = n;
 		   }
 			   
-		Node<String> mover = head;
+		Node<T> mover = head;
 		while(mover != null) {
 	    	   if(mover.getData().compareTo(n.getData()) < 0) {
 	    		   mover.setNext(n);
@@ -44,12 +42,12 @@ public class SLL {
 		   }
 	   
 	   
-	   private Node<String> find(String key) 
+	   private Node<T> find(String key) 
 	   {
 	       // implement find
 		   if(head != null) {
-			   Node<String> found = null;
-			   Node<String> mover = head;
+			   Node<T> found = null;
+			   Node<T> mover = head;
     		   if (mover.getData() == key) {
     			   found = mover;
     		   }
@@ -66,10 +64,10 @@ public class SLL {
 		   }
 	   }
 	   
-	   private Node<String> delete (String key) 
+	   private Node<T> delete (String key) 
 	   {   
-			Node<String> mover = head;
-			Node<String> previous = head;
+			Node<T> mover = head;
+			Node<T> previous = head;
 			
 			while (mover != null) {
 				
@@ -103,7 +101,7 @@ public class SLL {
 	   private void printList()
 	   {
 	       System.out.println();
-	       Node<String> currentNode = head;
+	       Node<T> currentNode = head;
 	       while (currentNode != null) 
 	       {
 	          // Visit the node. In this case, print it out. 
