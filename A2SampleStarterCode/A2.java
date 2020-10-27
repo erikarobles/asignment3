@@ -7,7 +7,7 @@ import java.util.Scanner;
  * This program must read a input stream and keeps track of the 
  * frequency at which an avenger is mentioned either by name or alias.
  *
- * @author Maryam Elahi
+ * @author Maryam Elahi, Sidhant Kaushik, Erika Robles
  * @date Fall 2020
 */
 
