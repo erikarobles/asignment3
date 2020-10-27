@@ -141,18 +141,22 @@ public class A2 {
 		return ret;
 	}
 	
+	private void ordered() {
+		mentionList.printList();
+	}
 
 	/**
 	 * print the results
 	 */
 	private void printResults() {
 		System.out.println("Total number of words: " + totalwordcount);
-		//System.out.println("Number of Avengers Mentioned: " + ??);
-		System.out.println();
+		System.out.println("Number of Avengers Mentioned: ");
+		System.out.println(mentionList.size());
 
 		System.out.println("All avengers in the order they appeared in the input stream:");
 		// Todo: Print the list of avengers in the order they appeared in the input
 		// Make sure you follow the formatting example in the sample output
+		ordered();
 
 		System.out.println();
 		

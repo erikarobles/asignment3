@@ -41,7 +41,7 @@ public class SLL <T extends Comparable<T>> {
 	    	   mover.getNext();
 	    	   }
 	       }
-		   }
+		}
 	   
 	   
 	   public Node<T> find(T key)
@@ -98,6 +98,17 @@ public class SLL <T extends Comparable<T>> {
 			}
 			
 			return null;
+	   }
+	   
+	   public int size(){
+		   
+		    int count = 0;
+		    Node<T> currNode = head;
+		    while (currNode!= null){
+		        count++;
+		        currNode=currNode.getNext();
+		    }
+		    return count;
 	   }
 	   
 	   public void printList()
