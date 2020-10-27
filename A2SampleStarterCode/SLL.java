@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-public class SLL <T extends Comparable<T>> {
-=======
 import java.util.Comparator;
 
 public class SLL <T extends Comparable<T>>{
->>>>>>> 56deb8e2db3ce54a35eb0f46a288cac886149953
 	   private Node<T> head;
 	   private Node<T> tail;
 
@@ -32,25 +28,23 @@ public class SLL <T extends Comparable<T>>{
 	       }
 	   }
 
-	   public void addInOrder(Node<T> n, Comparator<Node<T>> a)
-	   {
-		   
-		   if(head == null) {
+	   public void addInOrder(Node<T> n, Comparator<Node<T>> a) {
+
+		   if (head == null) {
 			   head = n;
 		   }
-			   
-		Node<T> mover = head;
-		while(mover != null) {
-			if(a.compare(n, mover)==0){
-				mover.getNext();
-			}
-			else if(a.compare(n, mover)>0){
-				mover.getNext();
-			}
-			else{
-				mover.setNext(n);
-			}
-	       }
+
+		   Node<T> mover = head;
+		   while (mover != null) {
+			   if (a.compare(n, mover) == 0) {
+				   mover.getNext();
+			   } else if (a.compare(n, mover) > 0) {
+				   mover.getNext();
+			   } else {
+				   mover.setNext(n);
+			   }
+		   }
+	   }
 
 	   public Node<T> find(T key)
 	   {
