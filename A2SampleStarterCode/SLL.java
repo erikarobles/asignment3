@@ -1,4 +1,8 @@
+
 public class SLL <T extends Comparable<T>> {
+
+
+public class SLL {
 	   private Node<String> head;
 	   private Node<String> tail;
 	   
@@ -66,8 +70,36 @@ public class SLL <T extends Comparable<T>> {
 	   
 	   private Node<String> delete (String key) 
 	   {   
-		  // implement delete
-	      return null;
+			Node<String> mover = head;
+			Node<String> previous = head;
+			
+			while (mover != null) {
+				
+				if (mover.getData().equals(key)) {
+					if (mover == head && mover == tail) {
+						emptyList();
+						return mover;
+					}
+					
+					if (mover == tail) {
+						tail = previous;
+					}
+					
+					if (mover == head) {
+						head = mover.getNext();
+					} else {
+						previous.setNext(mover.getNext());
+					}
+					return mover;
+					
+				} else {
+					previous = mover;
+					mover = mover.getNext();
+				}			
+				
+			}
+			
+			return null;
 	   }
 	   
 	   private void printList()
