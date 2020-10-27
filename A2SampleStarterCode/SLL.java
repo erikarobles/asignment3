@@ -1,4 +1,4 @@
-public class SLL {
+public class SLL <T extends Comparable<T>> {
 	   private Node<String> head;
 	   private Node<String> tail;
 	   
