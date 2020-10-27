@@ -1,5 +1,6 @@
+import java.util.Comparator;
 
-public class SLL <T extends Comparable<T>> {
+public class SLL <T extends Comparable<T>>{
 	   private Node<T> head;
 	   private Node<T> tail;
 
@@ -24,8 +25,7 @@ public class SLL <T extends Comparable<T>> {
 	       }
 	   }
 
-
-	   public void addInOrder(Node<T> n)
+	   public void addInOrder(Node<T> n, Comparator<Node<T>> a)
 	   {
 		   
 		   if(head == null) {
@@ -34,14 +34,17 @@ public class SLL <T extends Comparable<T>> {
 			   
 		Node<T> mover = head;
 		while(mover != null) {
-	    	   if(mover.getData().compareTo(n.getData()) < 0) {
-	    		   mover.setNext(n);
-	    	   }
-	    	   else {
-	    	   mover.getNext();
-	    	   }
+			if(a.compare(n, mover)==0){
+				mover.getNext();
+			}
+			else if(a.compare(n, mover)>0){
+				mover.getNext();
+			}
+			else{
+				mover.setNext(n);
+			}
 	       }
-		   }
+	   }
 	   
 	   
 	   public Node<T> find(T key)
@@ -116,4 +119,5 @@ public class SLL <T extends Comparable<T>> {
 	   {
 	       head = null;
 	   }
+
 }
