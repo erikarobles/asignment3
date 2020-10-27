@@ -124,12 +124,8 @@ public class A2 {
 	}
 	private void increaseFreq(Avenger a) {
 
-//		for (Avenger currAvenger : mentionLost) {
-//			if (currAvenger.getAlias().equals(a.getAlias()) ||
-//					currAvenger.getName().equals(a.getName())) {
-//				currAvenger.increaseFreq();
-//			}
-//		}
+		mentionList.find(a).getData().increaseFreq();
+
 	}
 	private String cleanWord(String next) {
 		// First, if there is an apostrophe, the substring
