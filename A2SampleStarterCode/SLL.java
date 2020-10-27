@@ -3,7 +3,14 @@ import java.util.Comparator;
 public class SLL <T extends Comparable<T>>{
 	   private Node<T> head;
 	   private Node<T> tail;
+	   private Comparator a;
 
+	   public SLL(){
+
+	   }
+	   public SLL(Comparator a){
+	   	this.a = a;
+	   }
 	   public Node<T> getHead() {
 		   return head;
 	   }
@@ -28,7 +35,7 @@ public class SLL <T extends Comparable<T>>{
 	       }
 	   }
 
-	   public void addInOrder(Node<T> n, Comparator<Node<T>> a) {
+	   public void addInOrder(Node<T> n) {
 
 		   if (head == null) {
 			   head = n;

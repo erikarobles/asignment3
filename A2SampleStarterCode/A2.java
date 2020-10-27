@@ -22,7 +22,7 @@ public class A2 {
 	private Scanner input = new Scanner(System.in);
 	private SLL<Avenger> mentionList = new SLL<Avenger>();
 	private SLL<Avenger> alphabticalList = new SLL<Avenger>();
-	//private SLL<Avenger> mostPopularList = new SLL<Avenger>(new AvengerComparatorFreqDesc());
+	private SLL<Avenger> mostPopularList = new SLL<Avenger>(new MostFrequent());
 	//private SLL<Avenger> leastPopularList = new SLL<Avenger>(new AvengerComparatorFreqAsc());
 	
 	public static void main(String[] args) {
@@ -33,6 +33,7 @@ public class A2 {
 	public void run() {
 		readInput();
 		createdOrderedLists();
+		inOrder();
 		printResults();
 	}
 
@@ -114,7 +115,12 @@ public class A2 {
 		}
 		return false;
 	}
-	
+	private void inOrder(){
+		Node<Avenger> mover = mentionList.getHead();
+		while(mover!=null){
+			mostPopularList.addInOrder(mover);
+		}
+	}
 	private boolean listContains(Avenger a) {
 		//return mentionList.find(a) != null;
 		
@@ -162,6 +168,8 @@ public class A2 {
 		return ret;
 	}
 
+
+
 	/**
 	 * print the results
 	 */
@@ -180,7 +188,8 @@ public class A2 {
 		System.out.println("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
-		
+		mostPopularList.printList();
+
 		System.out.println();
 
 		System.out.println("Top " + topN + " least popular avengers:");
