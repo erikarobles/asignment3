@@ -1,8 +1,10 @@
-
 public class SLL <T extends Comparable<T>> {
 	   private Node<T> head;
 	   private Node<T> tail;
 
+	   public Node<T> getHead() {
+		   return head;
+	   }
 	   
 	   public void addHead(Node<T> n) {
 		   n.setNext(head);
@@ -46,26 +48,19 @@ public class SLL <T extends Comparable<T>> {
 	   
 	   public Node<T> find(T key)
 	   {
-	       // implement find 
-		   if(head != null) {
-			   Node<T> found = null;
-			   Node<T> mover = head;
-    		   if (mover.getData() == key) {
-    			   found = mover;
-    		   }
-	    	   while(mover.getNext() != null) {
-	    		   mover = mover.getNext();
-	    		   if (mover.getData() == key) {
-	    			   found = mover;
-	    		   }
-	    	   }
-	    	   return found;
-		   }
-		   else {
-			   return null;
-		   }
+			Node<T> mover = head;
+			
+			while (mover != null) {
+				if (mover.getData().equals(key)) { 
+					return mover;
+				} else {
+					mover = mover.getNext();
+				}
+				
+			}
+			return null;
 	   }
-	   
+	    
 	   public Node<T> delete (Node<T> key)
 	   {   
 			Node<T> mover = head;

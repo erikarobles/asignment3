@@ -1,6 +1,5 @@
 
 import java.util.Scanner;
-
 /** 
  * COMP 2503 Winter 2020 Assignment 2 
  * 
@@ -63,14 +62,15 @@ public class A2 {
 			String word = cleanWord(input.next());
 
 			if (word.length() > 0) {
-				// TODO:
 				totalwordcount++;
 				if (!existsInRoster(word)) {
 
 					Avenger a = createAvenger(word); //creates a new avenger object
-					Node<Avenger> aNode = new Node<Avenger>(a);
 
 					if (a!= null) {
+						
+						Node<Avenger> aNode = new Node<Avenger>(a);
+						
 						if (listContains(a)) { //if avengersArrayList already had this avenger, increase freq
 							increaseFreq(a);
 						} else {
@@ -114,19 +114,40 @@ public class A2 {
 		}
 		return false;
 	}
+	
 	private boolean listContains(Avenger a) {
-		if (mentionList.find(a) == null){
-			return false;
+		//return mentionList.find(a) != null;
+		
+		Node<Avenger> mover = mentionList.getHead();
+		
+		while (mover != null) {
+			if (mover.getData().getName().equals(a.getName()) || 
+					mover.getData().getAlias().equals(a.getAlias())) { 
+				return true;
+			} else {
+				mover = mover.getNext();
+			}
+			
 		}
-		else{
-			return true;
-		}
+		
+		return false;
 	}
+	
 	private void increaseFreq(Avenger a) {
-
-		mentionList.find(a).getData().increaseFreq();
+//		Node<Avenger> mover = mentionList.getHead();
+//		
+//		while (mover != null) {
+//			if (mover.getData().getName().equals(a.getName()) || 
+//					mover.getData().getAlias().equals(a.getAlias())) { 
+//				mover.getData().increaseFreq();
+//			} else {
+//				mover = mover.getNext();
+//			}
+//			
+//		}
 
 	}
+	
 	private String cleanWord(String next) {
 		// First, if there is an apostrophe, the substring
 		// before the apostrophe is used and the rest is ignored.
@@ -140,10 +161,6 @@ public class A2 {
 			ret = next.toLowerCase().trim().replaceAll("[^a-z]", "");
 		return ret;
 	}
-	
-	private void ordered() {
-		mentionList.printList();
-	}
 
 	/**
 	 * print the results
@@ -156,7 +173,7 @@ public class A2 {
 		System.out.println("All avengers in the order they appeared in the input stream:");
 		// Todo: Print the list of avengers in the order they appeared in the input
 		// Make sure you follow the formatting example in the sample output
-		ordered();
+		mentionList.printList();
 
 		System.out.println();
 		
