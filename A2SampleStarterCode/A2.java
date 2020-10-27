@@ -113,7 +113,26 @@ public class A2 {
 		}
 		return false;
 	}
-	
+	private boolean listContains(Avenger a) {
+
+		for (Avenger currAvenger : avengersArrayList) {
+			if (currAvenger.getAlias().equals(a.getAlias()) ||
+					currAvenger.getName().equals(a.getName())) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	private void increaseFreq(Avenger a) {
+
+		for (Avenger currAvenger : avengersArrayList) {
+			if (currAvenger.getAlias().equals(a.getAlias()) ||
+					currAvenger.getName().equals(a.getName())) {
+				currAvenger.increaseFreq();
+			}
+		}
+	}
 	private String cleanWord(String next) {
 		// First, if there is an apostrophe, the substring
 		// before the apostrophe is used and the rest is ignored.
