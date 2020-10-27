@@ -2,8 +2,7 @@ public class SLL <T extends Comparable<T>> {
 	   private Node<T> head;
 	   private Node<T> tail;
 	   
-	   private void addHead(Node<T> n) 
-	   {
+	   private void addHead(Node<T> n) {
 		   n.setNext(head);
 		   head = n;
 		   // add a node to the head of the list.
@@ -44,7 +43,7 @@ public class SLL <T extends Comparable<T>> {
 	   
 	   private Node<T> find(String key) 
 	   {
-	       // implement find
+	       // implement find 
 		   if(head != null) {
 			   Node<T> found = null;
 			   Node<T> mover = head;
