@@ -28,7 +28,7 @@ public class Avenger implements Comparable <Avenger> {
 	    /**
 		 * sets the frequency to 1
 		 */
-
+ 
     public void setFreq() {
 		frequency = 1;
 	}
