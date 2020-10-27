@@ -64,6 +64,8 @@ public class A2 {
 
 			if (word.length() > 0) {
 				// TODO:
+				totalwordcount++;
+				
 			}
 		}
 	}
