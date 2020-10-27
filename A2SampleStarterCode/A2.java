@@ -65,9 +65,53 @@ public class A2 {
 			if (word.length() > 0) {
 				// TODO:
 				totalwordcount++;
-				
+				if (!existsInRoster(word)) {
+
+					Avenger a = createAvenger(word); //creates a new avenger object
+
+					if (a!= null) {
+						if (listContains(a)) { //if avengersArrayList already had this avenger, increase freq
+							increaseFreq(a);
+						} else {
+							a.setFreq();
+							avengersArrayList.add(a); // if not, add it to the list
+						}
+					}
+				}
+
 			}
 		}
+	}
+	private Avenger createAvenger(String input) {
+
+		Avenger a = null;
+
+		for (int r = 0; r < avengerRoster.length; r++) {
+
+			for (int c = 0; c < 2; c++) {
+
+				if (input.equals(avengerRoster[r][c])) {
+					if (c == 1) { //if the input is an name
+						a = new Avenger(input, avengerRoster[r][0]);
+					} else if (c == 0) { //if the input is a last name
+						a = new Avenger(avengerRoster[r][1], input);
+					}
+				}
+			}
+
+		}
+		return a;
+	}
+
+	private boolean existsInRoster (String input){
+		for(int i = 0; i < avengerRoster.length; i++){
+			for(int j = 0; j < 2; j++){
+				if(avengerRoster[i][j] == input) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	private String cleanWord(String next) {
