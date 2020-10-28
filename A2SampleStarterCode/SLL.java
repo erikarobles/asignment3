@@ -17,7 +17,6 @@ public class SLL <T extends Comparable<T>>{
 	   }
 	   
 	   private void addHead(Node<T> n) {
-		   n.setNext(head);
 		   head = n;
 		   counter++;
 		   // add a node to the head of the list.
@@ -40,7 +39,7 @@ public class SLL <T extends Comparable<T>>{
 
 	public void addInOrder(Node<T> n)
 	{
-		if(isEmpty()||comp.compare(n.getData(),head.getData())<=0){
+		if(head == null||comp.compare(n.getData(),head.getData())<=0){
 			addHead(n);
 		}
 		else if (comp.compare(n.getData(),tail.getData())>0){
