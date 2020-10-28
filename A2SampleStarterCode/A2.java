@@ -23,7 +23,7 @@ public class A2 {
 	private SLL<Avenger> mentionList = new SLL<Avenger>();
 	private SLL<Avenger> alphabticalList = new SLL<Avenger>();
 	private SLL<Avenger> mostPopularList = new SLL<Avenger>(new MostFrequent());
-	//private SLL<Avenger> leastPopularList = new SLL<Avenger>(new AvengerComparatorFreqAsc());
+	private SLL<Avenger> leastPopularList = new SLL<Avenger>(new LeastFrequent());
 	
 	public static void main(String[] args) {
 		A2 a1 = new A2();
@@ -33,7 +33,6 @@ public class A2 {
 	public void run() {
 		readInput();
 		createdOrderedLists();
-		inOrder();
 		printResults();
 	}
 
@@ -64,9 +63,11 @@ public class A2 {
 
 			if (word.length() > 0) {
 				totalwordcount++;
-				if (!existsInRoster(word)) {
+			}
+			
+			if (!existsInRoster(word)) {
 
-					Avenger a = createAvenger(word); //creates a new avenger object
+					Avenger a = createAvenger(word); //creates a new avenger object	
 
 					if (a!= null) {
 						
@@ -79,11 +80,10 @@ public class A2 {
 							mentionList.addTail(aNode); // if not, add it to the list
 						}
 					}
-				}
-
 			}
 		}
-	}
+		}
+	
 	private Avenger createAvenger(String input) {
 
 		Avenger a = null;
@@ -117,8 +117,7 @@ public class A2 {
 	}
 	
 	private boolean listContains(Avenger a) {
-		//return mentionList.find(a) != null;
-		
+
 		Node<Avenger> mover = mentionList.getHead();
 		
 		while (mover != null) {
@@ -135,17 +134,17 @@ public class A2 {
 	}
 	
 	private void increaseFreq(Avenger a) {
-//		Node<Avenger> mover = mentionList.getHead();
-//		
-//		while (mover != null) {
-//			if (mover.getData().getName().equals(a.getName()) || 
-//					mover.getData().getAlias().equals(a.getAlias())) { 
-//				mover.getData().increaseFreq();
-//			} else {
-//				mover = mover.getNext();
-//			}
-//			
-//		}
+		Node<Avenger> mover = mentionList.getHead();
+		
+		while (mover != null) {
+			if (mover.getData().getName().equals(a.getName()) || 
+				mover.getData().getAlias().equals(a.getAlias())) { 
+				mentionList.find(mover.getData()).getData().increaseFreq(); break;
+			} else {
+				mover = mover.getNext();
+			}
+			
+		}
 
 	}
 	
@@ -161,17 +160,6 @@ public class A2 {
 		else
 			ret = next.toLowerCase().trim().replaceAll("[^a-z]", "");
 		return ret;
-	}
-
-	private void inOrder(){
-		Node<Avenger> mover = mentionList.getHead();
-		
-		while (mover != null) {
-			mostPopularList.addInOrder(mover);
-			mover = mover.getNext();
-		}
-		
-		mostPopularList.printList();
 	}
 
 	/**
@@ -192,7 +180,6 @@ public class A2 {
 		System.out.println("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
-		inOrder();
 
 		System.out.println();
 
@@ -204,7 +191,6 @@ public class A2 {
 
 		System.out.println("All mentioned avengers in alphabetical order:");
 		// Todo: Print the list of avengers in alphabetical order
-		inOrder();
 		
 		System.out.println();
 	}
