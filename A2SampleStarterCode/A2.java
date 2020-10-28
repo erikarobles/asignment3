@@ -17,7 +17,7 @@ public class A2 {
 			{ "hawkeye", "barton" }, { "warmachine", "rhodes" }, { "spiderman", "parker" },
 			{ "wintersoldier", "barnes" } };
 
-	private int topN = 4;
+	private int topN = 4; 
 	private int totalwordcount = 0;
 	private Scanner input = new Scanner(System.in);
 	private SLL<Avenger> mentionList = new SLL<Avenger>();
