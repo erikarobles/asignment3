@@ -104,18 +104,32 @@ public class SLL <T extends Comparable<T>>{
 			return null;
 	   }
 	   
-	   public int size(){
-		   
-		    int count = 0;
-		    Node<T> currNode = head;
-		    while (currNode!= null){
-		        count++;
-		        currNode=currNode.getNext();
-		    }
-		    return count;
+	   public int size() {
+
+		   int count = 0;
+		   Node<T> currNode = head;
+		   while (currNode != null) {
+			   count++;
+			   currNode = currNode.getNext();
+		   }
+		   return count;
 	   }
-	   
-	   public void printList()
+	public Node<T> get(int index)
+	{
+		Node<T> mover = head;
+
+		if (head == null && index == 0){
+			return null;
+		}
+		if (index<size() && index>=0){
+			for ( int i = 0; i< index; i++){
+				mover = mover.getNext();
+			}
+			return mover;
+		}
+		return null;
+	}
+	public void printList()
 	   {
 	       System.out.println();
 	       Node<T> currentNode = head;

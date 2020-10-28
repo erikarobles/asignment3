@@ -40,7 +40,9 @@ public class A2 {
 		// TODO: 
 		// Create a mover and traverse through the mentionList.
 		// Add each avenger to the other three lists.
-		
+		for (int i= 0; i < mentionList.size(); i++){
+			mostPopularList.addInOrder(mentionList.get(i));
+		}
 	}
 
 	/**
