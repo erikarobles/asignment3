@@ -17,13 +17,13 @@ public class A2 {
 			{ "hawkeye", "barton" }, { "warmachine", "rhodes" }, { "spiderman", "parker" },
 			{ "wintersoldier", "barnes" } };
 
-	private int topN = 4;
+	private int topN = 4; 
 	private int totalwordcount = 0;
 	private Scanner input = new Scanner(System.in);
 	private SLL<Avenger> mentionList = new SLL<Avenger>();
 	private SLL<Avenger> alphabticalList = new SLL<Avenger>();
 	private SLL<Avenger> mostPopularList = new SLL<Avenger>(new MostFrequent());
-	//private SLL<Avenger> leastPopularList = new SLL<Avenger>(new AvengerComparatorFreqAsc());
+	private SLL<Avenger> leastPopularList = new SLL<Avenger>(new LeastFrequent());
 	
 	public static void main(String[] args) {
 		A2 a1 = new A2();
@@ -65,9 +65,31 @@ public class A2 {
 				- if this avenger has not been mentioned before, add the newly created avenger to the end of the list, remember to set the frequency.
 		*/ 
 		while (input.hasNext()) {
+			String word = cleanWord(input.next());
+
+			if (word.length() > 0) {
+				totalwordcount++;
+			}
 			
+			if (!existsInRoster(word)) {
+
+					Avenger a = createAvenger(word); //creates a new avenger object	
+
+					if (a!= null) {
+						
+						Node<Avenger> aNode = new Node<Avenger>(a);
+						
+						if (listContains(a)) { //if avengersArrayList already had this avenger, increase freq
+							increaseFreq(a);
+						} else {
+							a.setFreq();
+							mentionList.addTail(aNode); // if not, add it to the list
+						}
+					}
+			}
 		}
-	}
+		}
+	
 	private Avenger createAvenger(String input) {
 
 		Avenger a = null;
@@ -101,8 +123,6 @@ public class A2 {
 	}
 
 	private boolean listContains(Avenger a) {
-		//return mentionList.find(a) != null;
-
 		Node<Avenger> mover = mentionList.getHead();
 		
 		while (mover != null) {
@@ -119,17 +139,17 @@ public class A2 {
 	}
 	
 	private void increaseFreq(Avenger a) {
-//		Node<Avenger> mover = mentionList.getHead();
-//		
-//		while (mover != null) {
-//			if (mover.getData().getName().equals(a.getName()) || 
-//					mover.getData().getAlias().equals(a.getAlias())) { 
-//				mover.getData().increaseFreq();
-//			} else {
-//				mover = mover.getNext();
-//			}
-//			
-//		}
+		Node<Avenger> mover = mentionList.getHead();
+		
+		while (mover != null) {
+			if (mover.getData().getName().equals(a.getName()) || 
+				mover.getData().getAlias().equals(a.getAlias())) { 
+				mentionList.find(mover.getData()).getData().increaseFreq(); break;
+			} else {
+				mover = mover.getNext();
+			}
+			
+		}
 
 	}
 	
