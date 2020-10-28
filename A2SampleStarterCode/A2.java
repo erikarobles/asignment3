@@ -41,17 +41,10 @@ public class A2 {
 		// Create a mover and traverse through the mentionList.
 		// Add each avenger to the other three lists.
 		
-		Node<Avenger> mover = mentionList.getHead();
-		
-		while(mover != null) {
-			alphabticalList.addInOrder(mover);
-			mostPopularList.addInOrder(mover);
-			leastPopularList.addInOrder(mover);
-			mover = mover.getNext();
-		}
-		
 		for (int i= 0; i < mentionList.size(); i++){
+			alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
+			leastPopularList.addInOrder(mentionList.get(i));
 		}
 	}
 
@@ -185,7 +178,6 @@ public class A2 {
 		// Todo: Print the list of avengers in the order they appeared in the input
 		// Make sure you follow the formatting example in the sample output
 		mentionList.printList();
-
 		System.out.println();
 		
 		System.out.println("Top " + topN + " most popular avengers:");
@@ -203,6 +195,5 @@ public class A2 {
 		System.out.println("All mentioned avengers in alphabetical order:");
 		// Todo: Print the list of avengers in alphabetical order
 		alphabticalList.printList();
-		System.out.println();
 	}
 }
