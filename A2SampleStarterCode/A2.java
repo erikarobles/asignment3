@@ -50,7 +50,6 @@ public class A2 {
 		// Add each avenger to the other three lists.
 		
 		for (int i= 0; i < mentionList.size(); i++){
-			
 			mostPopularList.addInOrder(mentionList.get(i));
 		}
 	}
