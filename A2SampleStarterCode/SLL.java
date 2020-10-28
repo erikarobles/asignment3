@@ -38,7 +38,7 @@ public class SLL <T extends Comparable<T>>{
 
 	public void addInOrder(Node<T> n)
 	{
-		if(head==null||a.compare(n.getData(),head.getData())<=0){
+		if(isEmpty()||a.compare(n.getData(),head.getData())<=0){
 			addHead(n);
 		}
 		else if (a.compare(n.getData(),tail.getData())>0){
@@ -130,6 +130,10 @@ public class SLL <T extends Comparable<T>>{
 	   public void emptyList()
 	   {
 	       head = null;
+	   }
+	   
+	   private boolean isEmpty() {
+		   return head == null;
 	   }
 
 }
