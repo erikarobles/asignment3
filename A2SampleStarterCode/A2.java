@@ -118,7 +118,10 @@ public class A2 {
 	private void inOrder(){
 		Node<Avenger> mover = mentionList.getHead();
 		mentionList.printList();
-		mostPopularList.addInOrder(mover);
+		while (mover != null) {
+			mostPopularList.addInOrder(mover);
+			mover.getNext();
+		}
 	}
 	private boolean listContains(Avenger a) {
 		//return mentionList.find(a) != null;
