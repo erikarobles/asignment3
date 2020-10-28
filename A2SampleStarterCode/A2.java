@@ -115,7 +115,7 @@ public class A2 {
 		}
 		return false;
 	}
-	
+
 	private boolean listContains(Avenger a) {
 
 		Node<Avenger> mover = mentionList.getHead();
