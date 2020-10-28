@@ -1,4 +1,6 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 /** 
  * COMP 2503 Winter 2020 Assignment 2 
@@ -19,7 +21,7 @@ public class A2 {
 
 	private int topN = 4; 
 	private int totalwordcount = 0;
-	private Scanner input = new Scanner(System.in);
+	private Scanner input;
 	private SLL<Avenger> mentionList = new SLL<Avenger>();
 	private SLL<Avenger> alphabticalList = new SLL<Avenger>();
 	private SLL<Avenger> mostPopularList = new SLL<Avenger>(new MostFrequent());
@@ -31,6 +33,12 @@ public class A2 {
 	}
 
 	public void run() {
+		try {
+			input = new Scanner(new File("input1.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		readInput();
 		createdOrderedLists();
 		printResults();

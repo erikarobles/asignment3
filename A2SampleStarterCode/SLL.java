@@ -3,6 +3,7 @@ import java.util.Comparator;
 public class SLL <T extends Comparable<T>>{
 	   private Node<T> head;
 	   private Node<T> tail;
+	   private int counter = 0;
 	   private Comparator <T> comp;
 
 	   public SLL(){
@@ -15,43 +16,45 @@ public class SLL <T extends Comparable<T>>{
 		   return head;
 	   }
 	   
-	   public void addHead(Node<T> n) {
+	   private void addHead(Node<T> n) {
 		   n.setNext(head);
 		   head = n;
+		   counter++;
 		   // add a node to the head of the list.
 	   }
 	   
 	   public void addTail(Node<T> a)
 	   {
 	       if(head != null) {
-	    	   Node<T> mover = head;
-	    	   while(mover.getNext() != null) {
-	    		   mover = mover.getNext();
-	    	   }
+	    	   Node<T> mover = tail;
 	    	   mover.setNext(a);
+	    	   tail = a;
 	       }
 	       else {
 	    	   head = a;
+	    	   tail = a;
 	       }
+	       counter++;
 	   }
 
 
 	public void addInOrder(Node<T> n)
 	{
-		if(isEmpty()||compare(n.getData(),head.getData())<=0){
+		if(isEmpty()||comp.compare(n.getData(),head.getData())<=0){
 			addHead(n);
 		}
-		else if (compare(n.getData(),tail.getData())>0){
+		else if (comp.compare(n.getData(),tail.getData())>0){
 			addTail(n);
 		}
 		else{
 			Node<T> mover = head;
-			while (mover.getNext()!=null && compare(n.getData(), mover.getNext().getData())>0){
+			while (mover.getNext()!=null && comp.compare(n.getData(), mover.getNext().getData())>0){
 				mover = mover.getNext();
 			}
 			n.setNext(mover.getNext());
 			mover.setNext(n);
 		}
+		counter++;
 	}
 	
 	public int compare(T o1, T o2) {
@@ -112,14 +115,7 @@ public class SLL <T extends Comparable<T>>{
 	   }
 	   
 	   public int size() {
-
-		   int count = 0;
-		   Node<T> currNode = head;
-		   while (currNode != null) {
-			   count++;
-			   currNode = currNode.getNext();
-		   }
-		   return count;
+		   return counter;
 	   }
 	public Node<T> get(int index)
 	{
