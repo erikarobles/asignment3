@@ -43,6 +43,7 @@ public class A2 {
 		for (int i= 0; i < mentionList.size(); i++){
 			mostPopularList.addInOrder(mentionList.get(i));
 		}
+		mostPopularList.printList();
 	}
 
 	/**
