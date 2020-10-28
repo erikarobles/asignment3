@@ -40,10 +40,11 @@ public class A2 {
 		// TODO: 
 		// Create a mover and traverse through the mentionList.
 		// Add each avenger to the other three lists.
+		mentionList.printList();
 		Node<Avenger> mover = mentionList.getHead();
 		while(mover != null){
 			mostPopularList.addInOrder(mover);
-			mover = mover.getNext();
+			mover.getNext();
 		}
 		mostPopularList.printList();
 	}
@@ -64,29 +65,7 @@ public class A2 {
 				- if this avenger has not been mentioned before, add the newly created avenger to the end of the list, remember to set the frequency.
 		*/ 
 		while (input.hasNext()) {
-
-			String word = cleanWord(input.next());
-
-			if (word.length() > 0) {
-				totalwordcount++;
-				if (!existsInRoster(word)) {
-
-					Avenger a = createAvenger(word); //creates a new avenger object
-
-					if (a!= null) {
-						
-						Node<Avenger> aNode = new Node<Avenger>(a);
-						
-						if (listContains(a)) { //if avengersArrayList already had this avenger, increase freq
-							increaseFreq(a);
-						} else {
-							a.setFreq();
-							mentionList.addTail(aNode); // if not, add it to the list
-						}
-					}
-				}
-
-			}
+			
 		}
 	}
 	private Avenger createAvenger(String input) {
