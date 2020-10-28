@@ -33,14 +33,19 @@ public class A2 {
 	public void run() {
 		readInput();
 		createdOrderedLists();
-		inOrder();
 		printResults();
 	}
 
 	private void createdOrderedLists() {
 		// TODO: 
 		// Create a mover and traverse through the mentionList.
-		// Add each avenger to the other three lists. 
+		// Add each avenger to the other three lists.
+		Node<Avenger> mover = mentionList.getHead();
+		while(mover != null){
+			mostPopularList.addInOrder(mover);
+			mover = mover.getNext();
+		}
+		mostPopularList.printList();
 	}
 
 	/**
@@ -118,7 +123,7 @@ public class A2 {
 
 	private boolean listContains(Avenger a) {
 		//return mentionList.find(a) != null;
-		
+
 		Node<Avenger> mover = mentionList.getHead();
 		
 		while (mover != null) {
@@ -163,17 +168,6 @@ public class A2 {
 		return ret;
 	}
 
-	private void inOrder(){
-		Node<Avenger> mover = mentionList.getHead();
-		
-		while (mover != null) {
-			mostPopularList.addInOrder(mover);
-			mover = mover.getNext();
-		}
-		
-		mostPopularList.printList();
-	}
-
 	/**
 	 * print the results
 	 */
@@ -192,7 +186,6 @@ public class A2 {
 		System.out.println("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
-		inOrder();
 
 		System.out.println();
 
@@ -204,7 +197,6 @@ public class A2 {
 
 		System.out.println("All mentioned avengers in alphabetical order:");
 		// Todo: Print the list of avengers in alphabetical order
-		inOrder();
 		
 		System.out.println();
 	}
