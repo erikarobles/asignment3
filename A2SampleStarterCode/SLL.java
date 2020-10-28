@@ -3,7 +3,7 @@ import java.util.Comparator;
 public class SLL <T extends Comparable<T>>{
 	   private Node<T> head;
 	   private Node<T> tail;
-	   private Comparator a;
+	   private Comparator <T> a;
 
 	   public SLL(){
 
@@ -36,25 +36,36 @@ public class SLL <T extends Comparable<T>>{
 	   }
 
 	   public void addInOrder(Node<T> n) {
+		   
+			if (this.isEmpty() || a.compare(n.getData(), head.getData()) <= 0) {
+				this.addHead(n);
+			} else if (a.compare(n.getData(),tail.getData()) > 0){
+				this.addTail(n);
+			} else {
+//				Node<T> mover = head;
+//				   while (mover!=null){
+//					   	if(a.compare(mover.getData(),n.getData())>0){
+//					   		mover.getNext();
+//						}
+//					   	else if(a.compare(mover.getData(),n.getData())<0){
+//					   		n.setNext(mover);
+//						}
+//					   	else {
+//					   		mover.getNext();
+//						}
+//				   }
+				Node<T> mover = head;
+				while (mover.getNext() != null && a.compare(n.getData(), mover.getNext().getData()) > 0) {
+					mover = mover.getNext();
+				}
+				n.setNext(mover.getNext());
+				mover.setNext(n);
+			}
 
-		   if (head == null) {
-			   System.out.println("loop 4");
-			   head = n;
-		   }
-		   Node<T> mover = head;
-		   while (mover!=null){
-		   	if(a.compare(mover.getData(),n.getData())>0){
-		   		mover.getNext();
-			}
-		   	else if(a.compare(mover.getData(),n.getData())<0){
-		   		n.setNext(mover);
-		   		mover=null;
-			}
-		   	else{
-		   		mover.getNext();
-			}
-		   }
-
+	   }
+	   
+	   private boolean isEmpty() {
+		   return head == null;
 	   }
 
 	   public Node<T> find(T key)
