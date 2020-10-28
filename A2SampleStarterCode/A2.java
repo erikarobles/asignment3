@@ -39,7 +39,13 @@ public class A2 {
 	private void createdOrderedLists() {
 		// TODO: 
 		// Create a mover and traverse through the mentionList.
-		// Add each avenger to the other three lists. 
+		// Add each avenger to the other three lists.
+		Node<Avenger> mover = mentionList.getHead();
+		while(mover != null){
+			mostPopularList.addInOrder(mover);
+			mover = mover.getNext();
+		}
+		mostPopularList.printList();
 	}
 
 	/**
@@ -117,7 +123,6 @@ public class A2 {
 	}
 
 	private boolean listContains(Avenger a) {
-
 		Node<Avenger> mover = mentionList.getHead();
 		
 		while (mover != null) {

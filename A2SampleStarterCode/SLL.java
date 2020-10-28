@@ -36,21 +36,21 @@ public class SLL <T extends Comparable<T>>{
 	   }
 
 
-	private void addInOrder(Node<T> n)
+	public void addInOrder(Node<T> n)
 	{
-
-		if(head == null) {
-			head = n;
+		if(head==null||a.compare(n.getData(),head.getData())<=0){
+			addHead(n);
 		}
-
-		Node<T> mover = head;
-		while(mover != null) {
-			if(mover.getData().compareTo(n.getData()) < 0) {
-				mover.setNext(n);
+		else if (a.compare(n.getData(),tail.getData())>0){
+			addTail(n);
+		}
+		else{
+			Node<T> mover = head;
+			while (mover.getNext()!=null && a.compare(n.getData(), mover.getNext().getData())>0){
+				mover = mover.getNext();
 			}
-			else {
-				mover.getNext();
-			}
+			n.setNext(mover.getNext());
+			mover.setNext(n);
 		}
 	}
 
