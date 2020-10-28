@@ -8,7 +8,7 @@ public class SLL <T extends Comparable<T>>{
 	   public SLL(){
 
 	   }
-	   public SLL(Comparator a){
+	   public SLL(Comparator <T> a){
 	   	this.a = a;
 	   }
 	   public Node<T> getHead() {
