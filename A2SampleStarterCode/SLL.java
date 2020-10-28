@@ -38,19 +38,23 @@ public class SLL <T extends Comparable<T>>{
 	   public void addInOrder(Node<T> n) {
 
 		   if (head == null) {
+			   System.out.println("loop 4");
 			   head = n;
 		   }
-
 		   Node<T> mover = head;
-		   while (mover != null) {
-			   if (a.compare(n, mover) == 0) {
-				   mover.getNext();
-			   } else if (a.compare(n, mover) > 0) {
-				   mover.getNext();
-			   } else {
-				   mover.setNext(n);
-			   }
+		   while (mover!=null){
+		   	if(a.compare(mover.getData(),n.getData())>0){
+		   		mover.getNext();
+			}
+		   	else if(a.compare(mover.getData(),n.getData())<0){
+		   		n.setNext(mover);
+		   		mover=null;
+			}
+		   	else{
+		   		mover.getNext();
+			}
 		   }
+
 	   }
 
 	   public Node<T> find(T key)
