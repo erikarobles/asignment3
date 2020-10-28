@@ -3,13 +3,13 @@ import java.util.Comparator;
 public class SLL <T extends Comparable<T>>{
 	   private Node<T> head;
 	   private Node<T> tail;
-	   private Comparator <T> a;
+	   private Comparator <T> comp;
 
 	   public SLL(){
 
 	   }
-	   public SLL(Comparator <T> a){
-	   	this.a = a;
+	   public SLL(Comparator <T> comparator){
+	   	this.comp = comparator;
 	   }
 	   public Node<T> getHead() {
 		   return head;
@@ -38,22 +38,29 @@ public class SLL <T extends Comparable<T>>{
 
 	public void addInOrder(Node<T> n)
 	{
-		if(isEmpty()||a.compare(n.getData(),head.getData())<=0){
+		if(isEmpty()||compare(n.getData(),head.getData())<=0){
 			addHead(n);
 		}
-		else if (a.compare(n.getData(),tail.getData())>0){
+		else if (compare(n.getData(),tail.getData())>0){
 			addTail(n);
 		}
 		else{
 			Node<T> mover = head;
-			while (mover.getNext()!=null && a.compare(n.getData(), mover.getNext().getData())>0){
+			while (mover.getNext()!=null && compare(n.getData(), mover.getNext().getData())>0){
 				mover = mover.getNext();
 			}
 			n.setNext(mover.getNext());
 			mover.setNext(n);
 		}
 	}
-
+	
+	public int compare(T o1, T o2) {
+		if (comp == null) {
+			return o1.compareTo(o2);
+		} else {
+			return comp.compare(o1, o2);
+		}
+	}
 
 	public Node<T> find(T key)
 	   {
