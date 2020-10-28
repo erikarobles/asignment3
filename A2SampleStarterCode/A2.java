@@ -50,6 +50,10 @@ public class A2 {
 			mover = mover.getNext();
 		}
 		
+		for (int i= 0; i < mentionList.size(); i++){
+			mostPopularList.addInOrder(mentionList.get(i));
+		}
+
 	}
 
 	/**
