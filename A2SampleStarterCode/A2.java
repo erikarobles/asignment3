@@ -40,13 +40,7 @@ public class A2 {
 		// TODO: 
 		// Create a mover and traverse through the mentionList.
 		// Add each avenger to the other three lists.
-		mentionList.printList();
-		Node<Avenger> mover = mentionList.getHead();
-		while(mover != null){
-			mostPopularList.addInOrder(mover);
-			mover.getNext();
-		}
-		mostPopularList.printList();
+		
 	}
 
 	/**
