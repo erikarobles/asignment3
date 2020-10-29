@@ -48,11 +48,9 @@ public class A2 {
 		// TODO: 
 		// Create a mover and traverse through the mentionList.
 		// Add each avenger to the other three lists.
-		
+
 		for (int i= 0; i < mentionList.size(); i++){
-			alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
-			leastPopularList.addInOrder(mentionList.get(i));
 		}
 	}
 
@@ -182,7 +180,7 @@ public class A2 {
 		System.out.println("Number of Avengers Mentioned: ");
 		System.out.println(mentionList.size());
 
-		System.out.println("All avengers in the order they appeared in the input stream:");
+		System.out.println("All avengers in the order they appeared in the input stream1:");
 		// Todo: Print the list of avengers in the order they appeared in the input
 		// Make sure you follow the formatting example in the sample output
 		mentionList.printList();
@@ -191,7 +189,6 @@ public class A2 {
 		System.out.println("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
-		mostPopularList.printList();
 		System.out.println();
 
 		System.out.println("Top " + topN + " least popular avengers:");
