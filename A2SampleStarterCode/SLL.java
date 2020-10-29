@@ -41,15 +41,9 @@ public class SLL <T extends Comparable<T>>{
 	       counter++;
 	   }
 
-
-<<<<<<< Updated upstream
-	public void addInOrder(Node<T> n)
-	{
-		if(isEmpty()||comp.compare(n.getData(),head.getData())<=0){
-=======
 	public void addInOrder(Node<T> n) {
 		if(isEmpty()||compare(n.getData(),head.getData())<=0){
->>>>>>> Stashed changes
+
 			addHead(n);
 		}
 		else if (comp.compare(n.getData(),tail.getData())>0){
