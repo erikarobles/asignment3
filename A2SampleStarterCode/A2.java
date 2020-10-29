@@ -21,7 +21,7 @@ public class A2 {
 
 	private int topN = 4; 
 	private int totalwordcount = 0;
-	private Scanner input;
+	private Scanner input = new Scanner(System.in);
 	private SLL<Avenger> mentionList = new SLL<Avenger>();
 	private SLL<Avenger> alphabticalList = new SLL<Avenger>();
 	private SLL<Avenger> mostPopularList = new SLL<Avenger>(new MostFrequent());
@@ -33,15 +33,17 @@ public class A2 {
 	}
 
 	public void run() {
-		try {
-			input = new Scanner(new File("input1.txt"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			input = new Scanner(new File("input1.txt"));
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch blockcr
+//			e.printStackTrace();
+//		}
+		
 		readInput();
 		createdOrderedLists();
 		printResults();
+		
 	}
 
 	private void createdOrderedLists() {
@@ -50,10 +52,19 @@ public class A2 {
 		// Add each avenger to the other three lists.
 		
 		for (int i= 0; i < mentionList.size(); i++){
-			alphabticalList.addInOrder(mentionList.get(i));
-			mostPopularList.addInOrder(mentionList.get(i));
-			leastPopularList.addInOrder(mentionList.get(i));
+				//alphabticalList.addInOrder(mentionList.get(i));
+				mostPopularList.addInOrder(mentionList.get(i));
+				//leastPopularList.addInOrder(mentionList.get(i));
+
 		}
+		
+//		Node<Avenger> mover = mentionList.getHead();
+//		
+//		while (mover != null) {
+//			alphabticalList.addInOrder(mover);
+//			mover = mover.getNext();
+//		}
+		
 	}
 
 	/**

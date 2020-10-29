@@ -122,6 +122,7 @@ public class SLL <T extends Comparable<T>>{
 	   public int size() {
 		   return counter;
 	   }
+	   
 	public Node<T> get(int index)
 	{
 		Node<T> mover = head;
@@ -137,6 +138,7 @@ public class SLL <T extends Comparable<T>>{
 		}
 		return null;
 	}
+	
 	public void printList()
 	   {
 	       System.out.println();
@@ -149,8 +151,7 @@ public class SLL <T extends Comparable<T>>{
 	       }
 	   }
 	   
-	   public void emptyList()
-	   {
+	   public void emptyList() {
 	       head = null;
 	   }
 	   
