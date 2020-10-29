@@ -52,6 +52,7 @@ public class A2 {
 		// Add each avenger to the other three lists.
 		
 		for (int i= 0; i < mentionList.size(); i++){
+<<<<<<< Updated upstream
 				//alphabticalList.addInOrder(mentionList.get(i));
 				mostPopularList.addInOrder(mentionList.get(i));
 				//leastPopularList.addInOrder(mentionList.get(i));
@@ -64,6 +65,18 @@ public class A2 {
 //			alphabticalList.addInOrder(mover);
 //			mover = mover.getNext();
 //		}
+=======
+			//alphabticalList.addInOrder(mentionList.get(i));
+			//mostPopularList.addInOrder(mentionList.get(i));
+			//leastPopularList.addInOrder(mentionList.get(i));
+		}
+		
+		Node<Avenger> mover = mentionList.getHead();
+		while(mover != null) {
+			alphabticalList.addInOrder(mover);
+			mover = mover.getNext();
+		}
+>>>>>>> Stashed changes
 		
 	}
 
@@ -190,7 +203,7 @@ public class A2 {
 	 */
 	private void printResults() {
 		System.out.println("Total number of words: " + totalwordcount);
-		System.out.println("Number of Avengers Mentioned: ");
+		System.out.print("Number of Avengers Mentioned: ");
 		System.out.println(mentionList.size());
 
 		System.out.println("All avengers in the order they appeared in the input stream:");

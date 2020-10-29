@@ -29,8 +29,7 @@ public class SLL <T extends Comparable<T>>{
 		   // add a node to the head of the list.
 	   }
 	   
-	   public void addTail(Node<T> a)
-	   {
+	   public void addTail(Node<T> a) {
 	       if(head != null) {
 	    	   Node<T> mover = tail;
 	    	   mover.setNext(a);
@@ -43,9 +42,14 @@ public class SLL <T extends Comparable<T>>{
 	   }
 
 
+<<<<<<< Updated upstream
 	public void addInOrder(Node<T> n)
 	{
 		if(isEmpty()||comp.compare(n.getData(),head.getData())<=0){
+=======
+	public void addInOrder(Node<T> n) {
+		if(isEmpty()||compare(n.getData(),head.getData())<=0){
+>>>>>>> Stashed changes
 			addHead(n);
 		}
 		else if (comp.compare(n.getData(),tail.getData())>0){
