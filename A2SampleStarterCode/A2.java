@@ -53,9 +53,9 @@ public class A2 {
 
 
 		for (int i= 0; i < mentionList.getSize()-1; i++) {
-			//alphabticalList.addInOrder(mentionList.get(i));
+			alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
-			//leastPopularList.addInOrder(mentionList.get(i));
+			leastPopularList.addInOrder(mentionList.get(i));
 		}
 		
 		SLL<Avenger> copy = mentionList.clone();
