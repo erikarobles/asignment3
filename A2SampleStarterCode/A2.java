@@ -33,12 +33,12 @@ public class A2 {
 	}
 
 	public void run() {
-		try {
-			input = new Scanner(new File("input1.txt"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch blockcr
-			e.printStackTrace();
-		}
+//		try {
+//			input = new Scanner(new File("input1.txt"));
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch blockcr
+//			e.printStackTrace();
+//		}
 		
 		readInput();
 		createdOrderedLists();
@@ -51,19 +51,21 @@ public class A2 {
 		// Create a mover and traverse through the mentionList.
 		// Add each avenger to the other three lists.
 		
-		for (int i= 0; i < mentionList.size(); i++) {
-			//alphabticalList.addInOrder(mentionList.get(i));
-			mostPopularList.addInOrder(mentionList.get(i));
-			//leastPopularList.addInOrder(mentionList.get(i));
-
-		}
-		
-//		Node<Avenger> mover = mentionList.getHead();
-//		
-//		while (mover != null) {
-//			alphabticalList.addInOrder(mover);
-//			mover = mover.getNext();
+//		for (int i= 0; i < mentionList.size(); i++) {
+//			//alphabticalList.addInOrder(mentionList.get(i));
+//			mostPopularList.addInOrder(mentionList.get(i));
+//			//leastPopularList.addInOrder(mentionList.get(i));
 //		}
+		
+		SLL<Avenger> copy = mentionList.copiedList(mentionList);
+		
+		Node<Avenger> mover = copy.getHead();
+		
+		while (mover != null) {
+			//alphabticalList.addInOrder(mover);
+			mostPopularList.addInOrder(mover);
+			mover = mover.getNext();
+		}
 		
 	}
 

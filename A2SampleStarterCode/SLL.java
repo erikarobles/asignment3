@@ -45,12 +45,12 @@ public class SLL <T extends Comparable<T>>{
 		if(isEmpty()||compare(n.getData(),head.getData())<=0){
 			addHead(n);
 		}
-		else if (comp.compare(n.getData(),tail.getData())>0){
+		else if (compare(n.getData(),tail.getData())>0){
 			addTail(n);
 		}
 		else{
 			Node<T> mover = head;
-			while (mover.getNext()!=null && comp.compare(n.getData(), mover.getNext().getData())>0){
+			while (mover.getNext()!=null && compare(n.getData(), mover.getNext().getData())>0){
 				mover = mover.getNext();
 			}
 			n.setNext(mover.getNext());
@@ -120,16 +120,15 @@ public class SLL <T extends Comparable<T>>{
 		   return counter;
 	   }
 	   
-	public Node<T> get(int index)
-	{
+	public Node<T> get(int index) {
 		Node<T> copyHead = copiedList(this).getHead();
 		
 		Node<T> mover = copyHead;
 
-		if (head == null && index == 0){
+		if (isEmpty()){
 			return null;
 		}
-		if (index<size() && index>=0){
+		if (index<size() && index>0){
 			for ( int i = 0; i< index; i++){
 					mover = mover.getNext();
 			}
