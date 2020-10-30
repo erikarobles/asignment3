@@ -92,6 +92,7 @@ public class SLL <T extends Comparable<T>>{
 			   Node<T> mover = head;
 			   while (mover.getNext()!=null && compare(n.getData(), mover.getNext().getData())>0){
 			   mover = mover.getNext();
+			   counter++;
 		   }
 			   
 			n.setNext(mover.getNext());

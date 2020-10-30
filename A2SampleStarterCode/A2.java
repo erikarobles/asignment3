@@ -58,7 +58,7 @@ public class A2 {
 	private void readInput() {
 		while (input.hasNext()) {
 			String word = cleanWord(input.next());
-
+			
 			if (word.length() > 0) {
 				totalwordcount++;
 			}
@@ -186,10 +186,12 @@ public class A2 {
 	private String cleanWord(String next) {
 		String ret;
 		int inx = next.indexOf('\'');
-		if (inx != -1)
+		if (inx != -1) {
 			ret = next.substring(0, inx).toLowerCase().trim().replaceAll("[^a-z]", "");
-		else
+		} else {
 			ret = next.toLowerCase().trim().replaceAll("[^a-z]", "");
+		}
+			
 		return ret;
 	}
 	
@@ -201,6 +203,7 @@ public class A2 {
 	private String printFour(SLL<Avenger> list) {
 		
 		String avengerList = "";
+
 		if (list.getSize() > topN) {
 			
 			int x = 0;
