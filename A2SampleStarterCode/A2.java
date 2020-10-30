@@ -51,7 +51,7 @@ public class A2 {
 		// Create a mover and traverse through the mentionList.
 		// Add each avenger to the other three lists.
 		
-		for (int i= 0; i < mentionList.size(); i++) {
+		for (int i= 0; i < 10; i++) {
 			//alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
 			//leastPopularList.addInOrder(mentionList.get(i));
@@ -191,7 +191,7 @@ public class A2 {
 	private void printResults() {
 		System.out.println("Total number of words: " + totalwordcount);
 		System.out.println("Number of Avengers Mentioned: ");
-		System.out.println(mentionList.size());
+		System.out.println(mentionList.getSize());
 
 		System.out.println("All avengers in the order they appeared in the input stream:");
 		// Todo: Print the list of avengers in the order they appeared in the input

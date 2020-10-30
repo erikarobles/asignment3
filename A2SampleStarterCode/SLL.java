@@ -56,7 +56,6 @@ public class SLL <T extends Comparable<T>>{
 			n.setNext(mover.getNext());
 			mover.setNext(n);
 		}
-		counter++;
 	}
 	
 	public int compare(T o1, T o2) {
@@ -116,7 +115,7 @@ public class SLL <T extends Comparable<T>>{
 			return null;
 	   }
 	   
-	   public int size() {
+	   public int getSize() {
 		   return counter;
 	   }
 	   
@@ -129,7 +128,7 @@ public class SLL <T extends Comparable<T>>{
 		if (head == null && index == 0){
 			return null;
 		}
-		if (index<size() && index>=0){
+		if (index<getSize() && index>=0){
 			for ( int i = 0; i< index; i++){
 					mover = mover.getNext();
 			}
