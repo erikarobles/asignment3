@@ -33,12 +33,12 @@ public class A2 {
 	}
 
 	public void run() {
-//		try {
-//			input = new Scanner(new File("input1.txt"));
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch blockcr
-//			e.printStackTrace();
-//		}
+		try {
+			input = new Scanner(new File("input1.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch blockcr
+			e.printStackTrace();
+		}
 		
 		readInput();
 		createdOrderedLists();
@@ -52,8 +52,8 @@ public class A2 {
 		// Add each avenger to the other three lists.
 		
 		for (int i= 0; i < mentionList.size(); i++) {
-			alphabticalList.addInOrder(mentionList.get(i));
-			//mostPopularList.addInOrder(mentionList.get(i));
+			//alphabticalList.addInOrder(mentionList.get(i));
+			mostPopularList.addInOrder(mentionList.get(i));
 			//leastPopularList.addInOrder(mentionList.get(i));
 
 		}

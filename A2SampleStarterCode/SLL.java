@@ -43,7 +43,6 @@ public class SLL <T extends Comparable<T>>{
 
 	public void addInOrder(Node<T> n) {
 		if(isEmpty()||compare(n.getData(),head.getData())<=0){
-
 			addHead(n);
 		}
 		else if (comp.compare(n.getData(),tail.getData())>0){
@@ -123,7 +122,7 @@ public class SLL <T extends Comparable<T>>{
 	   
 	public Node<T> get(int index)
 	{
-		Node<T> copyHead = copiedList(this);
+		Node<T> copyHead = copiedList(this).getHead();
 		
 		Node<T> mover = copyHead;
 
@@ -132,7 +131,7 @@ public class SLL <T extends Comparable<T>>{
 		}
 		if (index<size() && index>=0){
 			for ( int i = 0; i< index; i++){
-				mover = mover.getNext();
+					mover = mover.getNext();
 			}
 //			Node <T> newNode = new Node<T>(mover.getData());
 //			return newNode;
@@ -141,13 +140,20 @@ public class SLL <T extends Comparable<T>>{
 		return null;
 	}
 	
-	public Node<T> copiedList (SLL<T> original) {
+	public SLL<T> copiedList (SLL<T> original) {
 		
-		Node<T> newHead = null; 
+		Node<T> mover = null;
+		SLL<T> copy = new SLL<>();
 		if (original.head != null) {
-			newHead = new Node<T>(original.getHead().getData());
+			mover = new Node<T>(original.getHead().getData());
+			mover.setNext(original.getHead().getNext());
+			copy.addHead(mover);
 		}
-		return newHead;
+		while(mover.getNext() != null){
+			mover = mover.getNext();
+			copy.addTail(mover);
+		}
+		return copy;
     }
 	
 	public void printList()
