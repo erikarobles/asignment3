@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="A2SampleStarterCode:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/A2SampleStarterCode_jar</output-path>
+    <root id="archive" name="A2SampleStarterCode.jar">
+      <element id="module-output" name="A2SampleStarterCode" />
+    </root>
+  </artifact>
+</component>

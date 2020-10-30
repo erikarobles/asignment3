@@ -56,6 +56,7 @@ public class SLL <T extends Comparable<T>>{
 		   else {
 			   n.setNext(head);
 			   head = n;
+			   tail.setNext(null);
 		   }
 		   counter++;
 	   }
@@ -68,7 +69,7 @@ public class SLL <T extends Comparable<T>>{
 	   public void addTail(Node<T> a) {
 	       if(head != null) {
 	    	   Node<T> mover = tail;
-	    	   mover.setNext(a);
+	    	   tail.setNext(a);
 	    	   tail = a;
 	       }
 	       else {
