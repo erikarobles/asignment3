@@ -85,14 +85,15 @@ public class SLL <T extends Comparable<T>>{
 	   public void addInOrder(Node<T> n) {
 		   
 		   if(isEmpty()||compare(n.getData(),head.getData())<=0){
-			addHead(n);
+			   addHead(n);
 		   } else if (compare(n.getData(),tail.getData())>0){
-			addTail(n);
+			   addTail(n);
 		   } else {
-			Node<T> mover = head;
-			while (mover.getNext()!=null && compare(n.getData(), mover.getNext().getData())>0){
-				mover = mover.getNext();
-			}
+			   Node<T> mover = head;
+			   while (mover.getNext()!=null && compare(n.getData(), mover.getNext().getData())>0){
+			   mover = mover.getNext();
+		   }
+			   
 			n.setNext(mover.getNext());
 			mover.setNext(n);
 		   }
@@ -186,7 +187,7 @@ public class SLL <T extends Comparable<T>>{
 	   }
 	   
 		/**
-		 * returns the node, given the node's index
+		 * returns a copy of the node, given the node's index
 		 * @param the node's position in the list, where the first node is 1
 		 * @return the node with that index
 		 */
@@ -199,8 +200,8 @@ public class SLL <T extends Comparable<T>>{
 		   if (isEmpty()) {
 			   return null;
 		   }
-
-		   if (index < getSize() && index > 0){
+		  
+		   if (index < getSize() && index >= 0){
 
 		   for ( int i = 0; i< index; i++){
 					mover = mover.getNext();

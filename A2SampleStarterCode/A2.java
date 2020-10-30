@@ -43,7 +43,6 @@ public class A2 {
 
 	private void createdOrderedLists() {
 
-
 		for (int i= 0; i < mentionList.getSize(); i++) {
 			alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
@@ -202,14 +201,19 @@ public class A2 {
 	private String printFour(SLL<Avenger> list) {
 		
 		String avengerList = "";
-		if (list.getSize()-1 > topN) {
-			for (int i= 0; i < topN; i++) {
-				avengerList = avengerList + list.get(i).toString() + "\n";
-			}
+		if (list.getSize() > topN) {
+			
+			int x = 0;
+			
+		    Node<Avenger> currentNode = list.getHead();
+		       while (x < topN) {
+		    	   avengerList = avengerList + currentNode.toString() + "\n";
+		           currentNode = currentNode.getNext();
+		           x++;
+		       }
+			
 		} else {
-			for(int i = 0; i < list.getSize()-1;i++) {
-				avengerList = avengerList + list.get(i).toString() + "\n";
-			}
+			list.printList();
 		}
 		
 		return avengerList;
@@ -230,12 +234,12 @@ public class A2 {
 		mentionList.printList();
 		System.out.println();
 		
-		System.out.print("Top " + topN + " most popular avengers:");
+		System.out.println("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
-		System.out.println((mostPopularList));
+		System.out.println(printFour(mostPopularList));
 
-		System.out.print("Top " + topN + " least popular avengers:");
+		System.out.println("Top " + topN + " least popular avengers:");
 		// Todo: Print the least popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
 		System.out.println(printFour(leastPopularList));
