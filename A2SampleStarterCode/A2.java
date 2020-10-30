@@ -30,6 +30,10 @@ public class A2 {
 	}
 
 	public void run() {
+<<<<<<< Updated upstream
+=======
+		
+>>>>>>> Stashed changes
 		readInput();
 		createdOrderedLists();
 		printResults();
