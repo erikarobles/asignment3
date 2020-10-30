@@ -18,7 +18,7 @@ import java.util.Comparator;
 public class SLL <T extends Comparable<T>>{
 	   private Node<T> head;
 	   private Node<T> tail;
-	   private int counter = 0;
+	   private int counter = -1;
 	   private Comparator <T> comp;
 	   public Node<T> copy = null;
 	   public SLL(){

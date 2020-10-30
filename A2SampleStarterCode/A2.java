@@ -30,10 +30,6 @@ public class A2 {
 	}
 
 	public void run() {
-<<<<<<< Updated upstream
-=======
-		
->>>>>>> Stashed changes
 		readInput();
 		createdOrderedLists();
 		printResults();
@@ -47,7 +43,8 @@ public class A2 {
 
 	private void createdOrderedLists() {
 
-		for (int i= 0; i < mentionList.getSize()-1; i++) {
+
+		for (int i= 0; i < mentionList.getSize(); i++) {
 			alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
 			leastPopularList.addInOrder(mentionList.get(i));

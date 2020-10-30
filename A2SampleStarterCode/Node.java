@@ -1,3 +1,8 @@
+/**
+  * Node Class
+  * @author Sidhant Kaushik, Erika Robles
+  * @version Fall 2020
+ */
 public class Node<T extends Comparable<T>> {
 
 	/**
@@ -54,7 +59,7 @@ public class Node<T extends Comparable<T>> {
   	  * returns the string representation of the node's data
   	  * @return string representation
   	*/
-    
+
 	public String toString() {
 		return getData().toString();
 	}
