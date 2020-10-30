@@ -1,6 +1,3 @@
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 /** 
  * COMP 2503 Winter 2020 Assignment 2 
@@ -33,40 +30,24 @@ public class A2 {
 	}
 
 	public void run() {
-		try {
-			input = new Scanner(new File("input4.txt"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch blockcr
-			e.printStackTrace();
-		}
-		
 		readInput();
 		createdOrderedLists();
 		printResults();
 		
 	}
+	
+	/**
+	 * Traverses through mentionList and creates three other ordered lists.
+	 * 
+	 */
 
 	private void createdOrderedLists() {
-		// TODO: 
-		// Create a mover and traverse through the mentionList.
-		// Add each avenger to the other three lists.
-
 
 		for (int i= 0; i < mentionList.getSize()-1; i++) {
-			//alphabticalList.addInOrder(mentionList.get(i));
+			alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
-			//leastPopularList.addInOrder(mentionList.get(i));
+			leastPopularList.addInOrder(mentionList.get(i));
 		}
-		
-		SLL<Avenger> copy = mentionList.clone();
-		copy.printList();
-		
-		Node<Avenger> mover = copy.getHead();
-
-//		while (mover != null) {
-//			//alphabticalList.addInOrder(mover);
-//			mostPopularList.addInOrder(mover);
-//			mover = mover.getNext();
 
 	}
 
@@ -75,16 +56,6 @@ public class A2 {
 	 * how many times avengers are mentioned by alias or last name.
 	 */
 	private void readInput() {
-		/*
-		In a loop, while the scanner object has not reached end of stream,
-		 	- read a word.
-		 	- clean up the word
-		    - if the word is not empty, add the word count. 
-		    - Check if the word is either an avenger alias or last name then
-				- Create a new avenger object with the corresponding alias and last name.
-				- if this avenger has already been mentioned, increase the frequency count for the object already in the list.
-				- if this avenger has not been mentioned before, add the newly created avenger to the end of the list, remember to set the frequency.
-		*/ 
 		while (input.hasNext()) {
 			String word = cleanWord(input.next());
 
@@ -103,13 +74,22 @@ public class A2 {
 						if (listContains(a)) { //if avengersArrayList already had this avenger, increase freq
 							increaseFreq(a);
 						} else {
-							a.setFreq();
+							a.setFreq();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 							mentionList.addTail(aNode); // if not, add it to the list
 						}
 					}
 			}
 		}
 		}
+	
+	/**
+	 * Helper method
+	 * takes a users input, 
+	 * if its a name, it finds the corresponding alias and vise versa
+	 * then creates a new object with the corret name and alias 
+	 * @param takes in the input, which is either a name, alias or invalid input
+	 * @return returns the new Avenger object
+	 **/
 	
 	private Avenger createAvenger(String input) {
 
@@ -131,6 +111,13 @@ public class A2 {
 		}
 		return a;
 	}
+	
+	/**
+	 * Helper method
+	 * checks if the given String input exists in the avengerRoster array
+	 * @param takes in the input, which is either a name, alias or invalid input
+	 * @return true, if the input is in the avengerRoster, false otherwise
+	 */
 
 	private boolean existsInRoster (String input){
 		for(int i = 0; i < avengerRoster.length; i++){
@@ -142,6 +129,13 @@ public class A2 {
 		}
 		return false;
 	}
+	
+	/**
+	 * Helper method
+	 * checks if the given Avenger input already exists in the mentionList
+	 * @param takes in the Avenger to look in the list for
+	 * @return true, if the input is in the mentionList, false otherwise
+	 */
 
 	private boolean listContains(Avenger a) {
 		Node<Avenger> mover = mentionList.getHead();
@@ -159,6 +153,13 @@ public class A2 {
 		return false;
 	}
 	
+	/**
+	 * Helper method
+	 * looks for the given Avenger in mentionList, 
+	 * then it takes that Avenger and increases its frequency by 1
+	 * @param takes in the Avenger to look in the list for
+	 */
+	
 	private void increaseFreq(Avenger a) {
 		Node<Avenger> mover = mentionList.getHead();
 		
@@ -174,11 +175,15 @@ public class A2 {
 
 	}
 	
+	/**
+	 * First, if there is an apostrophe, the substring
+	 * before the apostrophe is used and the rest is ignored.
+	 * Words are converted to all lower case.
+	 * All other punctuation and numbers are skipped.
+	 * @return the avenger's name or alias
+	 */
+	
 	private String cleanWord(String next) {
-		// First, if there is an apostrophe, the substring
-		// before the apostrophe is used and the rest is ignored.
-		// Words are converted to all lowercase.
-		// All other punctuation and numbers are skipped.
 		String ret;
 		int inx = next.indexOf('\'');
 		if (inx != -1)
@@ -187,34 +192,54 @@ public class A2 {
 			ret = next.toLowerCase().trim().replaceAll("[^a-z]", "");
 		return ret;
 	}
+	
+	/**
+	 * takes a sorted list and displays either the first four,
+	 * if the list contains less than four avengers, it displays the whole list
+	 * @return a string of each avenger mentioned in the correct order
+	 */
+	private String printFour(SLL<Avenger> list) {
+		
+		String avengerList = "";
+		if (list.getSize()-1 > topN) {
+			for (int i= 0; i < topN; i++) {
+				avengerList = avengerList + list.get(i).toString() + "\n";
+			}
+		} else {
+			for(int i = 0; i < list.getSize()-1;i++) {
+				avengerList = avengerList + list.get(i).toString() + "\n";
+			}
+		}
+		
+		return avengerList;
+	}
 
 	/**
 	 * print the results
 	 */
 	private void printResults() {
 		System.out.println("Total number of words: " + totalwordcount);
-		System.out.println("Number of Avengers Mentioned: ");
+		System.out.print("Number of Avengers Mentioned: ");
 		System.out.println(mentionList.getSize());
+		System.out.println();
 
-		System.out.println("All avengers in the order they appeared in the input stream:");
+		System.out.print("All avengers in the order they appeared in the input stream:");
 		// Todo: Print the list of avengers in the order they appeared in the input
 		// Make sure you follow the formatting example in the sample output
 		mentionList.printList();
 		System.out.println();
 		
-		System.out.println("Top " + topN + " most popular avengers:");
+		System.out.print("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
-		mostPopularList.printList();
-		System.out.println();
+		System.out.println((mostPopularList));
 
-		System.out.println("Top " + topN + " least popular avengers:");
+		System.out.print("Top " + topN + " least popular avengers:");
 		// Todo: Print the least popular avengers, see the instructions for tie breaking
 		// Make sure you follow the formatting example in the sample output
-		leastPopularList.printList();
-		System.out.println();
+		System.out.println(printFour(leastPopularList));
 
-		System.out.println("All mentioned avengers in alphabetical order:");
+		System.out.print("All mentioned avengers in alphabetical order:");
 		// Todo: Print the list of avengers in alphabetical order
 		alphabticalList.printList();
 	}
