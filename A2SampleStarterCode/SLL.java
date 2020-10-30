@@ -12,6 +12,9 @@ public class SLL <T extends Comparable<T>>{
 	   public SLL(Comparator <T> comparator){
 	   	this.comp = comparator;
 	   }
+	   
+	   public Node<T> copy = null;
+	   
 	   public Node<T> getHead() {
 		   return head;
 	   }
@@ -120,40 +123,50 @@ public class SLL <T extends Comparable<T>>{
 	   }
 	   
 	public Node<T> get(int index) {
-		Node<T> copyHead = copiedList(this).getHead();
 		
-		Node<T> mover = copyHead;
+		SLL<T> copyList = clone();
+		Node<T> mover = copyList.getHead();
 
-		if (isEmpty()){
+		if (isEmpty()) {
 			return null;
 		}
 
-		if (index<getSize() && index>=0){
+		if (index < getSize() && index > 0){
 
 			for ( int i = 0; i< index; i++){
 					mover = mover.getNext();
 			}
-//			Node <T> newNode = new Node<T>(mover.getData());
-//			return newNode;
+
 			return mover;
 		}
 		return null;
 	}
 	
-	public SLL<T> copiedList (SLL<T> original) {
+	public SLL<T> clone() {
+		
+		SLL<T> copyList = new SLL<T>();
 		
 		Node<T> mover = null;
-		SLL<T> copy = new SLL<>();
-		if (original.head != null) {
-			mover = new Node<T>(original.getHead().getData());
-			mover.setNext(original.getHead().getNext());
-			copy.addHead(mover);
+		Node<T> curr = null;
+		
+		if (head != null) {
+			
+			copy = new Node<T>(getHead().getData());
+			copyList.addHead(copy);
+			mover = getHead().getNext();
+			curr = copy;
 		}
-		while(mover.getNext() != null){
+		
+		while(mover != null){
+			Node<T> newNode = new Node<T>(mover.getData());
+			curr.setNext(newNode);
+			curr = newNode;
 			mover = mover.getNext();
-			copy.addTail(mover);
+
 		}
-		return copy;
+		
+		return copyList;
+
     }
 	
 	public void printList()
