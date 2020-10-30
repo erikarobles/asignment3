@@ -52,11 +52,11 @@ public class A2 {
 		// Add each avenger to the other three lists.
 
 
-//		for (int i= 0; i < mentionList.getSize(); i++) {
-//			//alphabticalList.addInOrder(mentionList.get(i));
-//			mostPopularList.addInOrder(mentionList.get(i));
-//			//leastPopularList.addInOrder(mentionList.get(i));
-//		}
+		for (int i= 0; i < mentionList.getSize()-1; i++) {
+			//alphabticalList.addInOrder(mentionList.get(i));
+			mostPopularList.addInOrder(mentionList.get(i));
+			//leastPopularList.addInOrder(mentionList.get(i));
+		}
 		
 		SLL<Avenger> copy = mentionList.clone();
 		copy.printList();

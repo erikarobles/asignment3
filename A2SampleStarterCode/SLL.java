@@ -148,7 +148,6 @@ public class SLL <T extends Comparable<T>>{
 		Node<T> curr = null;
 
 		if (head != null) {
-
 			copy = new Node<T>(getHead().getData());
 			copyList.addHead(copy);
 			mover = getHead().getNext();
