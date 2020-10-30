@@ -52,7 +52,7 @@ public class A2 {
 		// Add each avenger to the other three lists.
 
 
-		for (int i= 0; i < mentionList.getSize()-1; i++) {
+		for (int i= 0; i < mentionList.getSize(); i++) {
 			alphabticalList.addInOrder(mentionList.get(i));
 			mostPopularList.addInOrder(mentionList.get(i));
 			leastPopularList.addInOrder(mentionList.get(i));
